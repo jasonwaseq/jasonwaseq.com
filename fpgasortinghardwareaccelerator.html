@@ -13,7 +13,7 @@
       <div class="project-header">
         <h1>FPGA Sorting Hardware Accelerator</h1>
         <div class="project-image-large">
-          <img src="images/pwmcontrollerpcb.png" alt="pwmcontrollerpcb" />
+          <img src="images/fpgasortinghardwareaccelerator.png" alt="fpgasortinghardwareaccelerator" />
         </div>
       </div>
       
@@ -22,7 +22,10 @@
        
         <h3>Description:</h3>
         
-        <p> Developed a high-performance sorting accelerator on an iCE40 FPGA, featuring a UART interface for real-time communication with a host PC. The system receives unsorted 8-bit integer datasets, processes them on-chip using an optimized radix sort algorithm based on base-10 digit extraction (modulo and division), and returns the sorted results to the PC. The design leverages a multi-state finite state machine (FSM) to efficiently manage the sequential steps of bucketing, reordering, and transmitting data, ensuring low-latency, hardware-accelerated sorting suitable for embedded applications.</p>
+        <p>I designed and validated a complete end-to-end radix sorting system on the iCE40 FPGA, integrating hardware architecture, control logic, and verification into a single deployable design. The system accepts unsorted data over UART using a robust ready/valid handshake, buffers transactions through a read-priority synchronous FIFO, and performs high-throughput counting sort using 1024 block-RAM buckets. I optimized the design to close timing at 12 MHz with only ~16% LUT utilization, while resolving subtle RAM read-after-write hazards and FIFO push/pop race conditions to ensure deterministic correctness. Functional accuracy and performance were verified using a comprehensive SystemVerilog testbench and Python hardware harnesses that measured round-trip latency and sustained burst throughput. The finalized build flow (sv2v → yosys → nextpnr → icepack) produces a reproducible, ready-to-flash bitstream with automated testing support.<p></p>
+        <div class="video-embed" style="margin:2rem 0;text-align:center;">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/5T4x9xbzrMM" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
+        </div>
       </div>
       
       <div class="project-navigation">
